@@ -1,9 +1,9 @@
-class Girl{
+class Mag{
     constructor(x,y,v1,v2){
         this.position = new createVector(x,y);
         this.velocity = new createVector(v1,v2);
         this.acceleration = new createVector(0,0);
-        this.topSpeed=10;
+        this.topSpeed=20;
     }
 
     update(){
@@ -13,12 +13,12 @@ class Girl{
 
     }
 
-    spawn(){
+    spawn(r,g,b){
         //ellipse(this.position.x, this.position.y, 50,50);
         push();
         translate(this.position.x-65,this.position.y-60);
         strokeWeight(2);
-        stroke(240,50,100);
+        stroke(r,g,b);
         fill(0);
         ellipse(65,60,80,80);
         circle(48,60,20,20);
@@ -32,10 +32,10 @@ class Girl{
     }
 
     checkEdges(){
-        if(this.position.x>width-80 || this.position.x<0){
+        if(this.position.x>width-50 || this.position.x<50){
             this.velocity.x*=-1;
         }
-        if(this.position.y>height-200 || this.position.y<0){
+        if(this.position.y>height-65 || this.position.y<50){
             this.velocity.y*=-1;
             print(this.velocity.y);
         }

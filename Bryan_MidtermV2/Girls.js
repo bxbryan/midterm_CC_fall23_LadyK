@@ -1,4 +1,4 @@
-class Boy{
+class Girl{
     constructor(x,y,v1,v2){
         this.position = new createVector(x,y);
         this.velocity = new createVector(v1,v2);
@@ -18,7 +18,7 @@ class Boy{
         push();
         translate(this.position.x-65,this.position.y-60);
         strokeWeight(2);
-        stroke(255);
+        stroke(240,50,100);
         fill(0);
         ellipse(65,60,80,80);
         circle(48,60,20,20);
@@ -31,13 +31,18 @@ class Boy{
         pop();
     }
 
-    checkEdges(){
-        if(this.position.x>width-80 || this.position.x<0){
-            this.velocity.x*=-1;
+    bound(){//intended to let girl stay within canvas
+        if(this.position.x>width-80){
+            this.position.x=(width-80);
         }
-        if(this.position.y>height-200 || this.position.y<0){
-            this.velocity.y*=-1;
-            print(this.velocity.y);
+        if (this.position.x<0){
+            this.position.x=(0);
+        }
+        if(this.position.y>height-80){
+            this.position.y=(height-80);
+        }
+        if (this.position.y<0){
+            this.position.y=(0);
         }
     }
 }
